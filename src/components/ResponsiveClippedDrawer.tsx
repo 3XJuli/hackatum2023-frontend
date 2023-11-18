@@ -58,7 +58,7 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
   </>;
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
@@ -104,7 +104,7 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
         {drawerContent}
       </Drawer >
       <Box
-        component="main"
+        component="main" flex={1} justifyContent={'flex-end'}
       >
         {pages.map((page) => (page.name === selectedPageName && page.content))}
       </Box>

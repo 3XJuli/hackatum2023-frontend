@@ -7,6 +7,7 @@ import DevicesIcon from '@mui/icons-material/Devices';
 import Home from './components/Home';
 import Sustainability from './components/Sustainability';
 import SmartDevices from './components/SmartDevices';
+import GrafanaDashboard from './components/GrafanaDashboard';
 
 
 
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <ResponsiveClippedDrawer pages={pages}></ResponsiveClippedDrawer>
+      <GrafanaDashboard>test</GrafanaDashboard>
     </>
   )
 
