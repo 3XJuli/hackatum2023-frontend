@@ -104,7 +104,7 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
         {drawerContent}
       </Drawer >
       <Box
-        component="main" flex={1} justifyContent={'flex-end'}
+        component="main" flex={1} justifyContent={'flex-end'} className='page'
       >
         {pages.map((page) => (page.name === selectedPageName && page.content))}
       </Box>

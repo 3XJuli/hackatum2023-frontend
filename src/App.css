@@ -3,7 +3,32 @@
   font-family: "Roboto";
 }
 
-/*
+
 body {
   justify-content: center;
+}
+
+.page {
+   /* background-color: red; */
+  height: auto;
+  margin-top: 5rem;
+  justify-content: center;
+}
+
+.grafana{
+  border: 3px solid white;
+  padding: 0%;
+  height: 20rem;
+  width: 60rem;
+  margin-left: 5rem;
+}
+/*
+.grafana{
+  width: 100%;
+  height: 15rem;
+}
+*/
+.smart-device{
+  width: 25rem;
+  height: 20rem;
 }
