@@ -1,11 +1,17 @@
-# React + TypeScript + Vite
+## Whiteboard
+[Whiteboard Link](https://jamboard.google.com/d/1L3R7TKg_qFpztIGI9RdQCw0tkRVz5Nj1mf-I8BCxBc8/edit?usp=sharing)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Get started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Dev Setup:
+
+npm install
+npm run dev 
+
+
+### Dockerized Build: 
+docker compose up
 
 ## Expanding the ESLint configuration
 
