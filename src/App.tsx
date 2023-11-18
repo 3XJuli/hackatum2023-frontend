@@ -1,5 +1,5 @@
 import './App.css'
-import ResponsiveDrawer from './components/ResponsiveDrawer'
+import ResponsiveClippedDrawer from './components/ResponsiveClippedDrawer'
 import Page from './interfaces/Page'
 import NaturePeopleIcon from '@mui/icons-material/NaturePeople';
 import HomeIcon from '@mui/icons-material/Home';
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <ResponsiveDrawer pages={pages}></ResponsiveDrawer>
+      <ResponsiveClippedDrawer pages={pages}></ResponsiveClippedDrawer>
     </>
   )
 

@@ -7,11 +7,13 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import MenuIcon from '@mui/icons-material/Menu';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Page from '../interfaces/Page'
 import { useState } from 'react';
+import { IconButton, useMediaQuery, useTheme } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -24,13 +26,14 @@ interface Props {
 
 
 
-export default function ClippedDrawer({ pages }: Props) {
+export default function ResponsiveClippedDrawer({ pages }: Props) {
 
 
   const [selectedPageName, setSelectedPageName] = useState(pages[0].name)
 
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -55,29 +58,41 @@ export default function ClippedDrawer({ pages }: Props) {
   </>;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography variant="h6" noWrap component="div">
             EcoCis Connect
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-      >
-        {drawerContent}
-      </Drawer>
+      <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="Folders">
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          {drawerContent}
+        </Drawer>
+      </Box>
       <Drawer
         variant="permanent"
         sx={{
@@ -88,7 +103,9 @@ export default function ClippedDrawer({ pages }: Props) {
       >
         {drawerContent}
       </Drawer >
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+      >
         {pages.map((page) => (page.name === selectedPageName && page.content))}
       </Box>
     </Box >
