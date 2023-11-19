@@ -3,7 +3,6 @@ import { Box, Container, Grid, Paper, useMediaQuery, useTheme } from '@mui/mater
 import GrafanaDashboard from './GrafanaDashboard'
 import DonutChart from './DonutChart'
 import BarChart from './BarChart';
-import SmartCards from '../smartcards/SmartCards';
 
 export default function Dashboard() {
 
@@ -11,7 +10,6 @@ export default function Dashboard() {
 
     const matchDownMd = useMediaQuery(theme.breakpoints.up('md'));
 
-    console.log("matchDownMd", matchDownMd);
 
     return (
         <Container>

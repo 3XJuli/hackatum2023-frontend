@@ -5,6 +5,9 @@
   margin: 0%;
 }
 
+a:hover {
+  color: rgb(3, 3, 3)
+}
 
 body {
   justify-content: center;

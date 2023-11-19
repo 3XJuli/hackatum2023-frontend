@@ -14,6 +14,9 @@ import Typography from '@mui/material/Typography';
 import Page from '../interfaces/Page'
 import { useState } from 'react';
 import { Icon, IconButton } from '@mui/material';
+import Notification from './notifications/NotificationDisplay';
+import { Route, Routes, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import logo from '../assets/logo.png';
 
@@ -29,9 +32,7 @@ interface Props {
 
 
 export default function SideBar({ pages }: Props) {
-
-
-  const [selectedPageName, setSelectedPageName] = useState(pages[0].name)
+  const { pathname } = useLocation();
 
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -45,20 +46,24 @@ export default function SideBar({ pages }: Props) {
     <Toolbar />
     <Box sx={{ overflow: 'auto' }}>
       <List>
-        {pages.map(({ name, icon }) => (
-          <ListItem key={name} disablePadding>
-            <ListItemButton selected={name === selectedPageName} onClick={() => setSelectedPageName(name)} sx={
+        {pages.map((page) => (
+          <ListItem key={page.name} disablePadding>
+            <ListItemButton selected={page.route === pathname} component={Link} to={page.route} sx={
               {
                 '&.Mui-selected': {
                   backgroundColor: '#F4F4F4',
                   color: '#000000'
+                },
+                '&:hover': {
+                  backgroundColor: '#F4F4F4',
+                  color: '#8accdd'
                 }
               }
             }>
               <ListItemIcon>
-                {icon}
+                {page.icon}
               </ListItemIcon>
-              <ListItemText primary={name} />
+              <ListItemText primary={page.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -115,8 +120,15 @@ export default function SideBar({ pages }: Props) {
       </Drawer >
       <Box
         component="main" flex={1} justifyContent={'flex-end'} className='page' sx={{ flexGrow: 1 }} height={"100vh"}>
-        {pages.map((page) => (page.name === selectedPageName && page.content))}
-      </Box>
+        <Routes>
+          {
+            pages.map((page) =>
+              <Route key={page.name} path={page.route} element={page.content} />)
+            /*(page.name === selectedPageName && page.content))
+            </Route>*/
+          }
+        </Routes>
+      </Box >
     </Box >
   );
 }

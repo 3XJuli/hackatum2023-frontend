@@ -7,13 +7,14 @@ import DevicesIcon from '@mui/icons-material/Devices';
 import Dashboard from './components/dashboard/Dashboard';
 import Sustainability from './components/sustainability/Sustainability';
 import SmartDevices from './components/smartdevices/SmartDevices';
-import Notification from './components/Notification';
 import SmartCards from './components/smartcards/SmartCards';
 import { ThemeProvider } from '@emotion/react';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
-
 import ProjectTheme from './theme';
-
+import EditRoadIcon from '@mui/icons-material/EditRoad';
+import { Security } from '@mui/icons-material';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 
@@ -21,31 +22,56 @@ function App() {
     {
       "name": "Home",
       "icon": <HomeIcon />,
-      "content": <SmartCards />
+      "content": <SmartCards />,
+      "route": "/"
     },
     {
       "name": "Dashboard",
       "icon": <SpaceDashboardIcon />,
-      "content": <Dashboard />
+      "content": <Dashboard />,
+      "route": "/dashboard"
     },
     {
       "name": "Sustainability Tips",
       "icon": <NaturePeopleIcon />,
-      "content": <Sustainability />
+      "content": <Sustainability />,
+      "route": "/sustainability",
     },
     {
       "name": "Smart Grid Devices",
       "icon": <DevicesIcon />,
-      "content": <SmartDevices />
+      "content": <SmartDevices />,
+      "route": "/smartdevices"
+    },
+    {
+      "name": "Infrastructure",
+      "icon": <EditRoadIcon />,
+      "content": <SmartDevices />,
+      "route": "/infrastructure"
+    },
+    {
+      "name": "Security",
+      "icon": <Security />,
+      "content": <SmartDevices />,
+      "route": "/security"
+    },
+    {
+      "name": "Data Transfer",
+      "icon": <CloudUploadIcon />,
+      "content": <SmartDevices />,
+      "route": "/datatransfer"
     }
   ]
 
-
   return (
+
     <>
-      <ThemeProvider theme={ProjectTheme}>
-        <SideBar pages={pages}></SideBar>
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider theme={ProjectTheme}>
+          <SideBar pages={pages}></SideBar>
+        </ThemeProvider>
+      </Router>;
+
     </>
   )
 
