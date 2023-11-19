@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Page from '../interfaces/Page'
 import { useState } from 'react';
-import { IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { IconButton } from '@mui/material';
 
 const drawerWidth = 240;
 

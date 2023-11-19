@@ -1,8 +1,7 @@
-import { Box, Container, Grid, Paper } from '@mui/material'
-import React, { Component } from 'react'
+import { Container, Grid, Paper } from '@mui/material'
+import { Component } from 'react'
 import GrafanaDashboard from './GrafanaDashboard'
 import DonutChart from './DonutChart'
-
 
 export default class Home extends Component {
     render() {

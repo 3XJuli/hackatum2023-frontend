@@ -1,5 +1,4 @@
 import { Button, Card, Grid } from '@mui/material'
-import React, { Component } from 'react'
 
 
 export default function SmartDevices() {

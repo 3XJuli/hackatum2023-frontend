@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 export default class Sustainability extends Component {
     render() {
