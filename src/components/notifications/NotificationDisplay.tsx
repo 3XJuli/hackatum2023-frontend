@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react'
+/*import { useState, useEffect, ReactNode } from 'react'
 
 interface Props {
     variant: string,
@@ -32,3 +32,4 @@ const Message = ({ variant, children }: Props) => {
 
 
 export default Message;
+*/

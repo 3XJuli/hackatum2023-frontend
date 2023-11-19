@@ -2,7 +2,7 @@
 import Chart from 'react-google-charts';
 import { useState, useEffect } from 'react';
 import { Config } from '../../config';
-import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { Box, CircularProgress, Grid, Typography } from '@mui/material';
 
 interface EnergyData {
     consumption: number;
@@ -60,7 +60,7 @@ export default function DonutChart() {
         };
 
         fetchData();
-    }, []); // Empty dependency array ensures that this effect runs once when the component mounts
+    }, [apiEndpoint]); // Empty dependency array ensures that this effect runs once when the component mounts
 
     if (!energyData) {
         return (

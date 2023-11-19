@@ -12,9 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Page from '../interfaces/Page'
-import { useState } from 'react';
-import { Icon, IconButton } from '@mui/material';
-import Notification from './notifications/NotificationDisplay';
+import { IconButton } from '@mui/material';
 import { Route, Routes, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 

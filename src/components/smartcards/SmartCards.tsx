@@ -5,7 +5,6 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import pages from '../../pages';
@@ -18,7 +17,7 @@ export default class Home extends Component {
             <Container>
                 <Grid container spacing={6} width={"50vm"}>
                     {pages.map(page => (
-                        page.cardTitle !== null &&
+                        page.cardTitle !== null && page.cardImage !== null &&
                         <Grid item xs={6} md={4}>
                             <Card>
                                 <CardMedia
