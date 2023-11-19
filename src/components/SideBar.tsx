@@ -13,7 +13,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Page from '../interfaces/Page'
 import { useState } from 'react';
-import { IconButton } from '@mui/material';
+import { Icon, IconButton } from '@mui/material';
+
+import logo from '../assets/logo.png';
 
 const drawerWidth = 240;
 
@@ -26,7 +28,7 @@ interface Props {
 
 
 
-export default function ResponsiveClippedDrawer({ pages }: Props) {
+export default function SideBar({ pages }: Props) {
 
 
   const [selectedPageName, setSelectedPageName] = useState(pages[0].name)
@@ -45,7 +47,14 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
       <List>
         {pages.map(({ name, icon }) => (
           <ListItem key={name} disablePadding>
-            <ListItemButton selected={name === selectedPageName} onClick={() => setSelectedPageName(name)}>
+            <ListItemButton selected={name === selectedPageName} onClick={() => setSelectedPageName(name)} sx={
+              {
+                '&.Mui-selected': {
+                  backgroundColor: '#F4F4F4',
+                  color: '#000000'
+                }
+              }
+            }>
               <ListItemIcon>
                 {icon}
               </ListItemIcon>
@@ -60,7 +69,7 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -71,6 +80,7 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
           >
             <MenuIcon />
           </IconButton>
+          <Box component={"img"} src={logo} sx={{ width: 50, height: 50, marginRight: 2 }}></Box>
           <Typography variant="h6" noWrap component="div">
             EcoCis Connect
           </Typography>
@@ -104,8 +114,7 @@ export default function ResponsiveClippedDrawer({ pages }: Props) {
         {drawerContent}
       </Drawer >
       <Box
-        component="main" flex={1} justifyContent={'flex-end'} className='page'
-      >
+        component="main" flex={1} justifyContent={'flex-end'} className='page' sx={{ flexGrow: 1 }} height={"100vh"}>
         {pages.map((page) => (page.name === selectedPageName && page.content))}
       </Box>
     </Box >

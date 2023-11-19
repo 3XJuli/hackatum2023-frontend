@@ -2,7 +2,7 @@
 import Chart from 'react-google-charts';
 import { useState, useEffect } from 'react';
 import { Config } from '../../config';
-import { Box, CircularProgress, Container, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
 
 interface EnergyData {
     consumption: number;
@@ -19,8 +19,8 @@ export default function DonutChart() {
         is3D: false,
         pieSliceText: "none",
         slices: {
-            0: { color: "red" },
-            1: { color: "lightgrey" },
+            0: { color: "#ff6969" },
+            1: { color: "#8accdd" },
         },
     };
 
@@ -64,7 +64,7 @@ export default function DonutChart() {
 
     if (!energyData) {
         return (
-            <Box display={"flex"} justifyContent={"center"} alignItems={"center"} height={"100%"}>
+            <Box display={"flex"} justifyContent={"center"} alignItems={"center"} height={'50vh'}>
                 <CircularProgress />
             </Box>
         );
@@ -83,16 +83,23 @@ export default function DonutChart() {
 
     console.log(energyData)
     return (
-        <Container>
-            <Typography variant="h6" component="div" gutterBottom>
-                Energy Consumption (Weekly Goal)
-            </Typography>
-            <Chart width={"100%"}
-                chartType="PieChart"
-                data={data}
-                options={options}
-            />
-        </Container>
+        <>
+            <Grid container direction={"column"} display={"flex"} justifyContent={"center"} alignItems={"center"} height={"100%"} spacing={0}>
+                <Grid item marginTop={2}>
+                    <Typography variant="h6" component="div" gutterBottom>
+                        Energy Consumption (Weekly Goal)
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <Chart
+                        chartType="PieChart"
+                        data={data}
+                        style={{ fontFamily: "Roboto" }}
+                        options={options}
+                    />
+                </Grid>
+            </Grid >
+        </>
     )
 }
 
